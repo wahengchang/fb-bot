@@ -13,7 +13,7 @@ $ npm install --save fb-bot
 
 # Initializing
 
-Initializing fb-bot 
+[This link](https://github.com/wahengchang/facebook-bot-template) initializing module parameters.
 ```js
 
 var express = require('express');
