@@ -17,7 +17,7 @@ $ npm install --save fb-bot
 ```js
 
 var express = require('express');
-var facebookModule = require('./index.js');
+var facebookModule = require('fb-bot.js');
 var app = express();
     
 facebookModule.init({
