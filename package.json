@@ -1,6 +1,6 @@
 {
   "name": "fb-bot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "SDK wrapper to verifyRequest, send message, recieve with Facebook Messenger Bots.",
   "main": "index.js",
   "scripts": {
