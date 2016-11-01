@@ -1,0 +1,32 @@
+{
+  "name": "fb-bot",
+  "version": "1.0.0",
+  "description": "SDK wrapper to verifyRequest, send message, recieve with Facebook Messenger Bots.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Peter Chang <wahengchang@gmail.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/wahengchang/fb-bot.git"
+  },
+  "keywords": [
+    "Facebook",
+    "Messenger",
+    "bot",
+    "api",
+    "chat"
+  ],
+  "bugs": {
+    "url": "https://github.com/wahengchang/fb-bot/issues"
+  },
+  "homepage": "https://github.com/wahengchang/fb-bot#readme",
+  "devDependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "should": "^11.1.1",
+    "supertest": "^2.0.1"
+  }
+}
