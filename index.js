@@ -292,6 +292,7 @@ function facebookModule() {
     sendButtonMessage: sendButtonMessage,
     sendQuickReply: sendQuickReply,
     sendTextMessage: sendTextMessage,
+    messageListener: messageListener,
     listener: listener,
     notListener: notListener,
     authGET: authGET,

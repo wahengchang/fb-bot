@@ -21,7 +21,7 @@ describe('Test init() /module/facebook.js', function() {
     done();
   });
 
-  it.only('Test init(), happy path', function(done) {
+  it('Test init(), happy path', function(done) {
     facebookModule.init({
       APP_SECRET: process.env.MESSENGER_APP_SECRET,
       VALIDATION_TOKEN: process.env.MESSENGER_VALIDATION_TOKEN,
@@ -145,9 +145,16 @@ describe('Test send message /module/facebook.js', function() {
     });
   });
 
+  describe('messageListener /module/facebook.js', function() {
+    it('messageListener, messageType match, should not pass', function(done) {
+      facebookModule.messageListener('I am taget', function(){
+        done();
+      })
+    });
+  });
 
 
-  describe.only('getProfile /module/facebook.js', function() {
+  describe('getProfile /module/facebook.js', function() {
     it('getProfile', function(done) {
       facebookModule.getProfile(testUserId).then(function(result){
         console.log(result)
@@ -157,5 +164,6 @@ describe('Test send message /module/facebook.js', function() {
       })
     });
   });
+
 })
 
