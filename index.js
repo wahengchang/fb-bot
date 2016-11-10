@@ -20,6 +20,11 @@ function facebookModule() {
       PAGE_ACCESS_TOKEN = _initJson.PAGE_ACCESS_TOKEN;
       SERVER_URL = _initJson.SERVER_URL;
 
+      console.log('APP_SECRET: ', APP_SECRET)
+      console.log('VALIDATION_TOKEN: ', VALIDATION_TOKEN)
+      console.log('PAGE_ACCESS_TOKEN: ', PAGE_ACCESS_TOKEN)
+      console.log('SERVER_URL: ', SERVER_URL)
+
       if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN && SERVER_URL)) {
         console.error("Missing config values");
         return false;
@@ -263,6 +268,23 @@ function facebookModule() {
     }
   }
 
+  function getProfile(userId) {
+    return new Promise(function (resolve, reject) {
+      request({
+        uri: 'https://graph.facebook.com/v2.6/'+userId+'?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token='+PAGE_ACCESS_TOKEN,
+        method: 'GET',
+      }, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+          var recipientId = body.recipient_id;
+          var messageId = body.message_id;
+          resolve(body);
+        } else {
+          console.error("Failed calling getProfile API", response.statusCode, response.statusMessage, body);
+          reject(error);
+        }
+      });
+    });
+  }
 
   return {
     init: init,
@@ -273,7 +295,8 @@ function facebookModule() {
     listener: listener,
     notListener: notListener,
     authGET: authGET,
-    parsePOST: parsePOST
+    parsePOST: parsePOST,
+    getProfile: getProfile
   };
 }
 

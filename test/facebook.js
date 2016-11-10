@@ -6,7 +6,7 @@ var facebookModule = require('../index.js')
     // parsePOST = facebookModule.parsePOST;
 
 var testUserId = process.env.TEST_USER_ID;
-
+console.log(' TEST_USER_ID: ', testUserId);
 
 describe('Test init() /module/facebook.js', function() {
   this.timeout(40000);
@@ -21,12 +21,12 @@ describe('Test init() /module/facebook.js', function() {
     done();
   });
 
-  it('Test init(), happy path', function(done) {
+  it.only('Test init(), happy path', function(done) {
     facebookModule.init({
-      APP_SECRET: 'APP_SECRET',
-      VALIDATION_TOKEN: 'VALIDATION_TOKEN',
-      PAGE_ACCESS_TOKEN: 'PAGE_ACCESS_TOKEN',
-      SERVER_URL: 'SERVER_URL'
+      APP_SECRET: process.env.MESSENGER_APP_SECRET,
+      VALIDATION_TOKEN: process.env.MESSENGER_VALIDATION_TOKEN,
+      PAGE_ACCESS_TOKEN: process.env.MESSENGER_PAGE_ACCESS_TOKEN,
+      SERVER_URL: process.env.MESSENGER_SERVER_URL
     }).should.be.eql(true);
     done();
   });
@@ -146,5 +146,16 @@ describe('Test send message /module/facebook.js', function() {
   });
 
 
+
+  describe.only('getProfile /module/facebook.js', function() {
+    it('getProfile', function(done) {
+      facebookModule.getProfile(testUserId).then(function(result){
+        console.log(result)
+        done();
+      },function(err){
+        done(err);
+      })
+    });
+  });
 })
 
