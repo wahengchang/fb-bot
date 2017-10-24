@@ -1,6 +1,6 @@
 # fb-bot
 
-SDK wrapper to verifyRequest, send message, recieve with Facebook Messenger Bots.
+SDK wrapper to verifyRequest, send message, receive with Facebook Messenger Bots.
 
 [![NPM](https://nodei.co/npm/fb-bot.png?downloads=true&downloadRank=true)](https://www.npmjs.com/package/fb-bot)
 
@@ -84,7 +84,7 @@ app.get('/webhook', facebookModule.authGET, function (req, res, next) {
 ```
 
 ```js
-## Recieve Message
+## Receive Message
 
 app.post('/webhook', facebookModule.parsePOST, function (req, res) {
   var dataList = req.afterParse ;
